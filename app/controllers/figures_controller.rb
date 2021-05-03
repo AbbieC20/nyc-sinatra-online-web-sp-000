@@ -18,7 +18,6 @@ class FiguresController < ApplicationController
       @title = Title.create(name: params["title"]["name"])
       @figure.titles << @title
     end
-
     # checking whether any landmark boxes are ticked and then associating with figure
     if !params["figure"]["landmark_ids"].nil?
       @figure.landmark_ids = params["figure"]["landmark_ids"]
@@ -55,14 +54,20 @@ class FiguresController < ApplicationController
     # update the titles
     if params["figure"]["title_ids"].nil?
       @figure.title_ids = []
-
-    @title = Title.find_by(name: params["genre"]["name"])
-    if !@genre.nil?
-      @song.genre_ids = @genre.id
+    else
+      @figure.title_ids = params["figure"]["title_ids"]
     end
-
-
-
+    # update the landmarks
+    if params["figure"]["landmark_ids"].nil?
+      @figure.landmark_ids = []
+    else
+      @figure.landmark_ids = params["figure"]["landmark_ids"]
+    end
+    #adds in any new landmarks
+    if !params["landmark"]["name"].empty?
+      @landmark = Landmark.create(name: params["landmark"]["name"], year_completed: params["landmark"]["year"])
+      @figure.landmarks << @landmark
+    end
     redirect to "/figures/#{@figure.id}"
   end
 
