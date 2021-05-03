@@ -28,12 +28,6 @@ class LandmarksController < ApplicationController
     # update the name, regardless changed
     @figure = Figure.find(params[:id])
     @figure.update(name: params["figure"]["name"])
-    # update the titles
-    if params["figure"]["title_ids"].nil?
-      @figure.title_ids = []
-    else
-      @figure.title_ids = params["figure"]["title_ids"]
-    end
     # update the landmarks
     if params["figure"]["landmark_ids"].nil?
       @figure.landmark_ids = []
