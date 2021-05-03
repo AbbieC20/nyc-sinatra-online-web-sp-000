@@ -7,23 +7,10 @@
   <body>
     <h2> Landmark Information</h2>
     <h3>Landmark Name: <%= @landmark.name %></h3>
-
-    <p>Titles: <%= @figure.titles.map { |t| t.name }.join(", ") %></a> </p>
-    <p>Landmarks: <%= @figure.landmarks.map { |l| l.name }.join(", ") %></a> </p>
+    <h4>Landmark's Year Completed: <%= @landmark.year_completed %></h4>
 
     <a class="button" href="/landmarks/<%= @landmark.id %>/edit">Edit Landmark</a>
     <a class="button" href="/landmarks">Landmarks</a>
 
   </body>
 </html>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Year Completed</th>
-  </tr>
-  <tr>
-    <td><%= @landmark.name %></td>
-    <td><%= @landmark.year_completed %></td>
-  </tr>
-<table>
