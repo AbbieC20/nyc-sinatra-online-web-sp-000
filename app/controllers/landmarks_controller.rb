@@ -24,7 +24,7 @@ class LandmarksController < ApplicationController
   #     @landmark = Landmark.create(name: params["landmark"]["name"], year_completed: params["landmark"]["year"])
   #     @figure.landmarks << @landmark
   #   end
-  #   redirect '/landmarks/index' 
-  # end
+    redirect '/landmarks/index'
+  end
 
 end
