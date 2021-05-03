@@ -27,4 +27,9 @@ class LandmarksController < ApplicationController
     redirect '/landmarks/index'
   end
 
+  get '/landmarks' do
+    @landmarks = Landmark.all
+    erb :'/landmarks/index'
+  end
+
 end
