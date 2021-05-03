@@ -42,9 +42,8 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/:id/edit' do
-    @song = Song.find_by_slug(params[:slug])
-    @genres = Genre.all
-  erb :'/figures/edit'  
+    @figure = Figure.find(params[:id])
+    erb :'/figures/edit'  
   end
 
 
