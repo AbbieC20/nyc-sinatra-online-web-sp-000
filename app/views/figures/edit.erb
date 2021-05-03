@@ -12,6 +12,12 @@
       <label>Edit the Figure's Name: </label><input id="figure_name" type="text" name="figure[name]" value="<%= @figure.name %>">
       <br><br>
 
+      <label>Edit the Titles for <%= @figure.name %></label><br>
+      <% @titles.each do |title| %>
+        <input type="checkbox" id="<%= title.name %>" name="title[name]" value="<%= title.name %>" <%='checked' if @figure.title.include?(title) %>><%= title.name %></input><br>
+      <% end %>
+      <br>
+
       <label>Edit the Landmarks for <%= @figure.name %></label><br>
       <% @landmarks.each do |landmark| %>
         <input type="checkbox" id="<%= landmark.name %>" name="landmark[name]" value="<%= landmark.name %>" <%='checked' if @figure.landmarks.include?(landmark) %>><%= landmark.name %></input><br>
