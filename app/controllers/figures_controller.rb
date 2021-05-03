@@ -48,5 +48,11 @@ class FiguresController < ApplicationController
     erb :'/figures/edit'
   end
 
+  patch '/figures/:id' do
+    @figure = Figure.find(params[:id])
+
+    redirect to "/figures/#{@figure.id}"
+  end
+
 
 end
