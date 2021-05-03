@@ -58,14 +58,3 @@ class FiguresController < ApplicationController
   end
 
 end
-
-
-@artist = Artist.find_by(name: params["figure"]["name"])
-if @artist.nil?
-  @artist = Artist.create(params[:artist])
-end
-@song.update(artist: @artist)
-
-@genre = Genre.find_by(name: params["genre"]["name"])
-if !@genre.nil?
-  @song.genre_ids = @genre.id
