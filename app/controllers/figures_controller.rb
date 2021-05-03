@@ -49,10 +49,15 @@ class FiguresController < ApplicationController
   end
 
   patch '/figures/:id' do
-    @figure = Figure.find_by(name: params["figure"]["name"])
-    if @figure.nil?
-      @figure = Figure.create(params[:figure])
+    @figure = Figure.find(params[:id])
+    @figure.update(name: params["figure"]["name"])
+
+
+    @title = Title.find_by(name: params["genre"]["name"])
+    if !@genre.nil?
+      @song.genre_ids = @genre.id
     end
+
 
     redirect to "/figures/#{@figure.id}"
   end
