@@ -8,7 +8,7 @@
     <h2> Edit the Figure </h2>
     <h3> Edits for <%= @figure.name %></h3>
 
-    <form action="/figures/<%= @figures.id %>" method="POST">
+    <form action="/figures/<%= @figure.id %>" method="POST">
       <input id="hidden" type="hidden" name="_method" value="patch">
       <label>Edit the Figure's Name: </label><input id="figure_name" type="text" name="figure[name]" value="<%= @figure.name %>">
       <br><br>
