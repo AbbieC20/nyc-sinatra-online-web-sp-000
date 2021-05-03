@@ -25,19 +25,8 @@ class LandmarksController < ApplicationController
   end
 
   patch '/landmarks/:id' do
-    # update the name, regardless changed
-    @figure = Figure.find(params[:id])
-    @figure.update(name: params["figure"]["name"])
-    # update the landmarks
-    if params["figure"]["landmark_ids"].nil?
-      @figure.landmark_ids = []
-    else
-      @figure.landmark_ids = params["figure"]["landmark_ids"]
-    end
-    #adds in any new landmarks
-    if !params["landmark"]["name"].empty?
-      @landmark = Landmark.create(name: params["landmark"]["name"], year_completed: params["landmark"]["year"])
-      @figure.landmarks << @landmark
+    @landmark = Landmark.find(params[:id])
+    @landmark.update(name: params["landmark"]["name"], year_completed: params["landmark"]["year_completed"])
     end
     redirect to "/landmarks/#{@landmark.id}"
   end
