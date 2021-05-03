@@ -5,8 +5,7 @@
   </head>
 
   <body>
-    <h2> Edit the Figure </h2>
-    <h3> Edits for <%= @figure.name %></h3>
+    <h2> Edit the Figure - <%= @figure.name %></h2>
 
     <form action="/figures/<%= @figure.id %>" method="POST">
       <input id="hidden" type="hidden" name="_method" value="patch">
