@@ -41,5 +41,11 @@ class FiguresController < ApplicationController
     erb :'/figures/show'
   end
 
+  get '/figures/:id/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    @genres = Genre.all
+  erb :'/figures/edit'  
+  end
+
 
 end
